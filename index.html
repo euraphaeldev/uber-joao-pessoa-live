@@ -3,7 +3,7 @@
 <style>
 *{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:transparent!important}
 body{font-family:Arial,Helvetica,sans-serif}
-svg{position:absolute;inset:0;width:100%;height:100%;display:block;overflow:hidden;pointer-events:none;background:transparent}
+svg{position:absolute;left:0;top:0;width:1920px;height:1080px;display:block;overflow:hidden;pointer-events:none;background:transparent;transform-origin:top left}
 .pulse{animation:pulse 2.4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
 .blink{animation:blink 1.5s steps(1) infinite}
 .sweep{animation:sweep 5s linear infinite}
@@ -44,4 +44,15 @@ svg{position:absolute;inset:0;width:100%;height:100%;display:block;overflow:hidd
 <text x="34" y="26" font-size="22" font-weight="800" fill="#fff" letter-spacing="1">CÂMERA INTERNA</text>
 </g>
 <path class="sweep" d="M-250 1060 H-30" stroke="#b6ffe0" stroke-width="6" opacity=".55"/>
-</svg></body></html>
+</svg><script>
+(function(){
+ const svg=document.querySelector('svg');
+ function resize(){
+   const w=document.documentElement.clientWidth||innerWidth;
+   const h=document.documentElement.clientHeight||innerHeight;
+   svg.style.transform='scale('+(w/1920)+','+(h/1080)+')';
+ }
+ addEventListener('resize',resize);
+ resize();
+})();
+</script></body></html>
